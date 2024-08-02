@@ -2,9 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-dt = 0.1                  # time step (s)
-friction = 1              # friction coefficient between the wheels and the road
-crash_reward = - 100 * dt
+"""
+This script defines the environment for an autonomous car simulation, including the car and track classes.
+The Car class models the car's behavior, including its position, velocity, and movement on the track.
+The Track class represents the racetracks.
+"""
+
+# Definition of a couple of costants
+dt = 0.1                    # time step (s)
+friction = 1                # friction coefficient between the wheels and the road
+crash_reward = - 100 * dt   # reward of a car crashing
 
 class Car:
     """
@@ -78,13 +85,14 @@ class Car:
 
         self.progress = self.get_progress(self.progress, track)
 
-        reward = self.get_reward(track, init_pos)
-
         if gas_break < 0:
             reward = - dt
 
-        if self.crash(track, init_pos, init_progress):
+        elif self.crash(track, init_pos, init_progress):
             reward = crash_reward
+
+        else:
+            reward = self.get_reward(track, init_pos)
 
         self.check_bug(track)
 
