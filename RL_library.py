@@ -5,8 +5,7 @@ from tensorflow.keras import layers
 """
 This script defines a Deep Deterministic Policy Gradient (DDPG) agent for reinforcement learning,
 including functions to create the actor and critic models,
-an experience replay buffer class to store and sample experiences,
-and functions to update the target networks using soft updates.
+an experience replay buffer class to store and sample experiences.
 """
 
 def get_actor(n_angles):
@@ -120,8 +119,8 @@ class Buffer:
         critic_optimizer (tf.keras.optimizers.Optimizer): Optimizer for critic model.
         actor_optimizer (tf.keras.optimizers.Optimizer): Optimizer for actor model.
         gamma (float): Discount factor.
-        buffer_capacity (int, optional): Maximum number of experiences to store in the buffer. Defaults to 100000.
-        batch_size (int, optional): Number of experiences to sample from the buffer during training. Defaults to 64.
+        buffer_capacity (int): Maximum number of experiences to store in the buffer. Defaults to 100000.
+        batch_size (int): Number of experiences to sample from the buffer during training. Defaults to 64.
     """
     def __init__(self, num_states, num_actions, target_actor, target_critic, critic_model, actor_model,
                  critic_optimizer, actor_optimizer, gamma, buffer_capacity=100000, batch_size=64):
