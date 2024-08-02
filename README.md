@@ -2,7 +2,7 @@ March 2024
 
 ## Deep Car
 This repository contains an implementation of an enviroment where car can race in a track and reinforcement learning methods are exploited to train an autonomous car.
-The cars can accelerate, decelerate, turn right or left with turning radius depending by the friction of the road and the velocity of the car.
+The cars can accelerate, decelerate, turn right or left with a turning radius depending by the friction of the road and the velocity of the car.
 The track can be arbitrarly built through a series of discrete points that will be interpolated.
 The reinforcement learning algorithm used is the Deep Deterministic Policy Gradient (DDPG) described in the paper https://arxiv.org/abs/1509.02971.
 
