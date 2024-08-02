@@ -11,7 +11,7 @@ The Track class represents the racetracks.
 # Definition of a couple of costants
 dt = 0.1                    # time step (s)
 friction = 1                # friction coefficient between the wheels and the road
-crash_reward = - 100 * dt   # reward of a car crashing
+crash_reward = - 10         # reward of a car crashing
 
 class Car:
     """
